@@ -15,6 +15,7 @@ class ViewController: UIViewController, UITableViewDataSource {
 
     @IBOutlet weak var tableview: UITableView!
     var people = [NSManagedObject]()
+    var name : String = "Checking in Git Only"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,16 +85,16 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
     
     func saveName(name: String) {
-        //1
+     
         let appDelegate =
         UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext
-        //2
+        
         let entity =  NSEntityDescription.entityForName("Person",
             inManagedObjectContext:managedContext)
         let person = NSManagedObject(entity: entity!,
             insertIntoManagedObjectContext: managedContext)
-        //3
+        
         person.setValue(name, forKey: "name")
         //4
         do {
